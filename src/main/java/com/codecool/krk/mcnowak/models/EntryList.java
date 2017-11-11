@@ -3,7 +3,6 @@ package com.codecool.krk.mcnowak.models;
 import com.codecool.krk.mcnowak.dao.EntryDao;
 import com.codecool.krk.mcnowak.exceptions.DaoException;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class EntryList {
@@ -17,8 +16,7 @@ public class EntryList {
         this.entryList.add(entry);
     }
 
-    public Iterator<Entry> getIterator() {
-        return this.entryList.iterator();
+    public List<Entry> getEntryList() {
+        return entryList;
     }
-
 }

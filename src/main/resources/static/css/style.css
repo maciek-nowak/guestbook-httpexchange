@@ -1,5 +1,52 @@
-body {
-	background-color: blue;
-    color: crimson;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic);
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    background: url("../images/Waving_reeds_cinemagraph.gif");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    margin: 50px auto;
+    text-align: center;
+    background: cornflowerblue;
+    padding: 25px;
+    font-size: 4em;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.entry {
+    margin: 50px;
+    padding: 20px;
+    background-color: cornflowerblue;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 25px auto;
+}
+
+form input, form textarea {
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+form input[type="submit"] {
+    font-size: 2em;
+    width: 200px;
+    margin: 20px auto;
 }

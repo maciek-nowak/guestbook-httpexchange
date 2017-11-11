@@ -1,51 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="static/css/reset.css">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="static/css/style.css">
-    <meta charset="UTF-8">
-    <title>Guest book</title>
-</head>
-<body>
-    <div class="container">
-    <header class="jumbotron text-center">
-        <h1>Hyper book GUESTBOOK!</h1>
-    </header>
-    <main>
-        <div class="row">
-            <table class="col-sm-12 text-center" id="violet">
-                {{entries}}
-            </table>
-        </div>
-        <form method="post">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    Name
-                </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Maciek's Nowak guestbook">
+        <meta name="keywords" content="contact, guestbook">
+        <meta name="author" content="Maciej Nowak">
+        <link rel="stylesheet" href="static/css/reset.css">
+        <link rel="stylesheet" href="static/css/style.css">
+        <title>Guest book</title>
+    </head>
+    <body>
+        <header class="jumbotron text-center">
+            <h1>Hyper book GUESTBOOK!</h1>
+        </header>
+        <main>
+            {% for entry in entries %}
+            <div class="entry">
+                <p>{{ entry.getContent() }}</p>
+                <p>Name: {{ entry.getName() }}</p>
+                <p>Date: {{ entry.getFormattedDate() }}</p>
             </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <input type="text" name="name" placeholder="Type your name">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    Message:
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <textarea name="content" placeholder="Type the message you want to put on my website"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <input type="submit" value="Submit">
-                </div>
-            </div>
-        </form>
-    </main>
-    </div>
-</body>
+            {% endfor %}
+            <form method="post">
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="name" placeholder="Enter your name">
+                <label for="Content">Message:</label>
+                <textarea name="content" id="Content" placeholder="Type the message you want to put on my website"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </main>
+    </body>
 </html>

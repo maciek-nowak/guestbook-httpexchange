@@ -1,5 +1,6 @@
 package com.codecool.krk.mcnowak.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Entry {
@@ -29,5 +30,12 @@ public class Entry {
 
     public Date getDate() {
         return date;
+    }
+
+    public String getFormattedDate() {
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        String formattedDate = dateFormatter.format(this.date);
+
+        return formattedDate;
     }
 }

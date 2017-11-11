@@ -1,6 +1,5 @@
 package com.codecool.krk.mcnowak;
 
-import com.codecool.krk.mcnowak.views.EntryListView;
 import com.sun.net.httpserver.HttpServer;
 import com.codecool.krk.mcnowak.models.EntryList;
 

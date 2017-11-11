@@ -24,8 +24,6 @@ public class Static implements HttpHandler {
         ClassLoader classLoader = getClass().getClassLoader();
         URL fileURL = classLoader.getResource(path);
 
-        OutputStream os = httpExchange.getResponseBody();
-
         if (fileURL == null) {
             // Object does not exist or is not a file: reject with 404 error.
             send404(httpExchange);

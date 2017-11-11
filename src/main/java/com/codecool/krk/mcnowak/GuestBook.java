@@ -3,7 +3,6 @@ package com.codecool.krk.mcnowak;
 import com.codecool.krk.mcnowak.dao.EntryDao;
 import com.codecool.krk.mcnowak.exceptions.DaoException;
 import com.codecool.krk.mcnowak.models.Entry;
-import com.codecool.krk.mcnowak.views.EntryListView;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.codecool.krk.mcnowak.models.EntryList;
@@ -16,6 +15,7 @@ import java.io.OutputStream;
 
 import java.net.URLDecoder;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GuestBook implements HttpHandler {
@@ -52,8 +52,7 @@ public class GuestBook implements HttpHandler {
 
         }
 
-        EntryListView entryListView = new EntryListView();
-        String entries = entryListView.getFullList(entryList);
+        List<Entry> entriesObjects = this.entryList.getEntryList();
         // get a template file
         JtwigTemplate template = JtwigTemplate.classpathTemplate("templates/index.twig");
 
@@ -61,7 +60,7 @@ public class GuestBook implements HttpHandler {
         JtwigModel model = JtwigModel.newModel();
 
         // fill the model with values
-        model.with("entries", entries);
+        model.with("entries", entriesObjects);
 
         // render a template to a string
         String response = template.render(model);
