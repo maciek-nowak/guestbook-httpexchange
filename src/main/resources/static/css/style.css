@@ -30,7 +30,7 @@ main {
 .entry {
     margin: 50px;
     padding: 20px;
-    background-color: cornflowerblue;
+    background-color: rgba(100, 149, 237, 0.8);
 }
 
 form {
